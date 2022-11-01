@@ -5,6 +5,7 @@ const db = require('./models/db');
 const Login = require('./models/Login');
 
 app.use(express.json());
+app.use(express.urlencoded());
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -16,10 +17,18 @@ app.post('/cadastrar', async (req, res) => {
         console.log('Usuário criado com sucesso.');
     }).catch(() => {
         console.log('Não foi possível cadastrar o usuário.');
-    })
+    });
+});
 
-    res.status(201).send('Hello, World!');
-})
+app.get('/loginsAPI', async (req, res) => {
+    await Login.findAll().then((logins) => {
+        res.status(200).send(logins);
+    });
+});
+
+app.get('/logins', async (req, res) => {
+    res.status(200).render('paginaLogins');
+});
 
 app.listen(porta, () => {
     console.log(`Porta ${porta} rodando.`);
