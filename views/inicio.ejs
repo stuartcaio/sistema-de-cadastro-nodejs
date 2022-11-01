@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 95vh;
+
+        background-color: blue;
+    }
+    
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        background-color: white;
+        color: black;
+
+        border: 1px solid #000;
+        border-radius: 15px;
+
+        padding: 5rem;
+    }
+
+    .formulario__titulo{
+        font-weight: 400;
+    }
+
+    .formulario__input{
+        padding: 0.25rem;
+
+        border-radius: 5px;
+    }
+
+    .formulario__botao{
+        background-color: blue;
+        color: white;
+
+        border-style: none;
+        border-radius: 5px;
+        
+        width: 50%;
+
+        padding: 0.5rem;
+    }
+</style>
+<body>
+    <main class="principal">
+        <form action="" class="formulario">
+            <h1 class="formulario__titulo">Registro</h1>
+            <input type="text" class="formulario__input" name="email" placeholder="Insira o seu e-mail">
+            <input type="text" class="formulario__input" name="senha" placeholder="Insira a sua senha">
+            <button class="formulario__botao">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>
