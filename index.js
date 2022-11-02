@@ -18,6 +18,8 @@ app.post('/cadastrar', async (req, res) => {
     }).catch(() => {
         console.log('Não foi possível cadastrar o usuário.');
     });
+
+    res.send(`<button><a href="/logins">Logins</a></button>`);
 });
 
 app.get('/loginsAPI', async (req, res) => {
@@ -29,6 +31,29 @@ app.get('/loginsAPI', async (req, res) => {
 app.get('/logins', async (req, res) => {
     res.status(200).render('paginaLogins');
 });
+
+app.get('/logins/excluir/:id', async (req, res) => {
+    const id = req.params.id;
+
+    res.status(200).render('excluir', {id: id});
+});
+
+app.get('/excluir/:id', async (req, res) => {
+    const id = req.params.id;
+
+    Login.findByPk(id).then((usuario) => {
+        if(usuario){
+            usuario.destroy({
+                where: {id: id}
+            }).then(() => {
+                res.render('excluido');
+            }).catch(() => {
+                res.send('Não foi possível remover o usuário.');
+            })
+        }
+    })
+})
+
 
 app.listen(porta, () => {
     console.log(`Porta ${porta} rodando.`);

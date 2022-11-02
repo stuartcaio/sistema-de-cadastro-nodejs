@@ -16,51 +16,42 @@
 
         background-color: blue;
     }
-    
+
     .formulario{
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-
-        background-color: white;
-        color: black;
-
-        border: 1px solid #000;
-        border-radius: 15px;
+        gap: 2rem;
 
         padding: 5rem;
+
+        border-style: none;
+        border-radius: 15px;
+
+        background-color: white;
     }
 
     .formulario__titulo{
         font-weight: 400;
     }
 
-    .formulario__input{
-        padding: 0.25rem;
-
-        border-radius: 5px;
-    }
-
     .formulario__botao{
         background-color: blue;
         color: white;
 
-        border-style: none;
-        border-radius: 5px;
-        
         width: 50%;
 
         padding: 0.5rem;
+
+        border-style: none;
+        border-radius: 5px;
     }
 </style>
 <body>
-    <main class="principal">
-        <form action="/cadastrar" method="post" class="formulario">
-            <h1 class="formulario__titulo">Registro</h1>
-            <input type="text" class="formulario__input" name="email" placeholder="Insira o seu e-mail" required>
-            <input type="text" class="formulario__input" name="senha" placeholder="Insira a sua senha" required>
-            <button class="formulario__botao" type="submit">Enviar</button>
+    <main>
+        <form action="/excluir/<%= id %>" class="formulario">
+            <h1 class="formulario__titulo">Deseja mesmo excluir esse login?</h1>
+            <button type="submit" class="formulario__botao">Excluir</button>
         </form>
     </main>
 </body>
