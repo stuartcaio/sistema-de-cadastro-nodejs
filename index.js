@@ -48,7 +48,30 @@ app.get('/excluir/:id', async (req, res) => {
             }).then(() => {
                 res.render('excluido');
             }).catch(() => {
-                res.send('Não foi possível remover o usuário.');
+                res.send('Não foi possível excluir o usuário.');
+            });
+        }
+    })
+});
+
+app.get('/logins/editar/:id', async (req, res) => {
+    const id = req.params.id;
+
+    res.status(200).render('editar', {id: id});
+});
+
+app.post('/editar/:id', async (req, res) => {
+    const id = req.params.id;
+    
+    Login.findByPk(id).then((usuario) => {
+        if(usuario){
+            usuario.update({
+                email: req.body.email,
+                senha: req.body.senha
+            }).then(() => {
+                res.render('editado');
+            }).catch(() => {
+                res.send('Não foi possível editar esse usuário.');
             })
         }
     })

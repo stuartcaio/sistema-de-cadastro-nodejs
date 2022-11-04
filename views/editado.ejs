@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: blue;
+
+        height: 95vh;
+    }
+
+    .principal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        border-style: none;
+        border-radius: 15px;
+
+        padding: 5rem;
+
+        background-color: white;
+    }
+
+    .principal__titulo{
+        font-weight: 400;
+    }
+
+    .principal__botao{
+        background-color: blue;
+        color: white;
+
+        padding: 0.5rem;
+
+        border-style: none;
+        border-radius: 5px;
+    }
+
+    .principal__botao a{
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+<body>
+    <main class="principal">
+        <h1 class="principal__titulo">Usuário editado com sucesso.</h1>
+        <button class="principal__botao"><a href="/logins">Editado</a></button>
+    </main>
+</body>
+</html>
