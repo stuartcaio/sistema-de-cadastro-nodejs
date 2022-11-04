@@ -13,13 +13,19 @@ app.get('/', (req, res) => {
 });
 
 app.post('/cadastrar', async (req, res) => {
-    await Login.create(req.body).then(() => {
-        console.log('Usuário criado com sucesso.');
-    }).catch(() => {
-        console.log('Não foi possível cadastrar o usuário.');
+    Login.findOne({where: {email: req.body.email}}).then((existe) => {
+        if(existe){
+            res.send('Esse usuário já existe.');
+        } else{
+            Login.create(req.body).then(() => {
+                console.log('Usuário criado com sucesso.');
+            }).catch(() => {
+                console.log('Não foi possível cadastrar o usuário.');
+            });
+        
+            res.redirect('/logins');
+        }
     });
-
-    res.send(`<button><a href="/logins">Logins</a></button>`);
 });
 
 app.get('/loginsAPI', async (req, res) => {
